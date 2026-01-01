@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Pusat Distribusi E-Commerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-truck-loading"></i> Simulasi Pusat Distribusi E-Commerce</h1>
+            <p>Analisis "What-If" untuk Optimasi Operasional Gudang</p>
+        </div>
+    </header>
+
+    <div class="container main-content">
+        <div class="simulation-config">
+            <div class="card">
+                <h2><i class="fas fa-sliders-h"></i> Parameter Simulasi</h2>
+                <div class="form-group">
+                    <label for="num_docks">Jumlah Dock Loading</label>
+                    <input type="range" id="num_docks" min="1" max="5" value="2" step="1">
+                    <span class="value-display">2</span>
+                </div>
+                <div class="form-group">
+                    <label for="num_workers">Jumlah Pekerja Pemilahan</label>
+                    <input type="range" id="num_workers" min="1" max="10" value="3" step="1">
+                    <span class="value-display">3</span>
+                </div>
+                <div class="form-group">
+                    <label for="num_forklifts">Jumlah Forklift</label>
+                    <input type="range" id="num_forklifts" min="1" max="5" value="2" step="1">
+                    <span class="value-display">2</span>
+                </div>
+                <div class="form-group">
+                    <label for="sim_time">Durasi Simulasi (menit)</label>
+                    <input type="range" id="sim_time" min="60" max="1440" value="480" step="60">
+                    <span class="value-display">480 (8 jam)</span>
+                </div>
+                <div class="form-group">
+                    <label for="seed">Random Seed</label>
+                    <input type="number" id="seed" value="42" min="1" max="1000">
+                </div>
+                <button id="run-simulation" class="btn btn-primary"><i class="fas fa-play"></i> Jalankan Simulasi</button>
+                <button id="compare-scenarios" class="btn btn-secondary"><i class="fas fa-balance-scale"></i> Bandingkan Skenario</button>
+            </div>
+        </div>
+
+        <div class="simulation-results">
+            <div class="card">
+                <h2><i class="fas fa-chart-line"></i> Hasil Simulasi</h2>
+                <div class="results-container" id="results-container">
+                    <div class="placeholder">
+                        <p><i class="fas fa-info-circle"></i> Atur parameter di sebelah kiri dan klik "Jalankan Simulasi" untuk melihat hasil</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="scenario-comparison hidden" id="scenario-comparison-section">
+        <div class="container">
+            <h2><i class="fas fa-balance-scale"></i> Perbandingan Skenario "What-If"</h2>
+            <div class="comparison-cards">
+                <div class="card scenario-card">
+                    <h3><i class="fas fa-warehouse"></i> Skenario A (Baseline)</h3>
+                    <p class="scenario-description">Konfigurasi saat ini</p>
+                    <div class="scenario-params">
+                        <p><span class="param-label">Dock Loading:</span> <span id="scenario-a-docks" class="param-value">2</span></p>
+                        <p><span class="param-label">Pekerja:</span> <span id="scenario-a-workers" class="param-value">3</span></p>
+                        <p><span class="param-label">Forklift:</span> <span id="scenario-a-forklifts" class="param-value">2</span></p>
+                    </div>
+                </div>
+                <div class="card scenario-card">
+                    <h3><i class="fas fa-cogs"></i> Skenario B (Usulan)</h3>
+                    <p class="scenario-description">Konfigurasi dengan penambahan kapasitas</p>
+                    <div class="scenario-params">
+                        <p><span class="param-label">Dock Loading:</span> <span id="scenario-b-docks" class="param-value">3</span></p>
+                        <p><span class="param-label">Pekerja:</span> <span id="scenario-b-workers" class="param-value">5</span></p>
+                        <p><span class="param-label">Forklift:</span> <span id="scenario-b-forklifts" class="param-value">3</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="comparison-results" id="comparison-results">
+                <!-- Hasil perbandingan akan dimuat di sini -->
+            </div>
+            <button id="reset-comparison" class="btn btn-outline"><i class="fas fa-redo"></i> Reset Perbandingan</button>
+        </div>
+    </section>
+
+    <section class="insights">
+        <div class="container">
+            <h2><i class="fas fa-brain"></i> Rekomendasi Bisnis</h2>
+            <div class="insights-container" id="insights-container">
+                <div class="card">
+                    <p><i class="fas fa-lightbulb"></i> Sesuaikan parameter simulasi untuk mendapatkan insight khusus untuk operasional gudang Anda. Analisis "What-If" akan membantu Anda membuat keputusan berbasis data tentang alokasi sumber daya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Simulasi Logistik E-Commerce | Pemodelan dan Simulasi</p>
+            <div class="footer-links">
+                <a href="https://simpy.readthedocs.io" target="_blank"><i class="fab fa-python"></i> SimPy Documentation</a>
+                <a href="#" id="about-app"><i class="fas fa-info-circle"></i> Tentang Aplikasi</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

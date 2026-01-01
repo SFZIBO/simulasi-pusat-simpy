@@ -1,0 +1,9 @@
+{
+  "default_params": {
+    "num_docks": 2,
+    "num_workers": 3,
+    "num_forklifts": 2,
+    "sim_time": 480,
+    "seed": 42
+  }
+}
